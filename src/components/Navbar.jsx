@@ -9,7 +9,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-[#f8fafc]/90 backdrop-blur-xl">
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
         <Link href="/" className="flex items-center gap-3">
           <Image

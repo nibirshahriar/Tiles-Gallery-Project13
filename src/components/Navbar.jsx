@@ -4,10 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
+  const pathname = usePathname();
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-[#f8fafc]/90 backdrop-blur-xl">
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
@@ -33,7 +34,14 @@ const Navbar = () => {
 
         <ul className="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700">
           <li>
-            <Link href="/" className="hover:text-black transition duration-200">
+            <Link
+              href="/"
+              className={`transition duration-200 ${
+                pathname === "/"
+                  ? "text-blue-600 font-bold"
+                  : "text-gray-700 hover:text-black"
+              }`}
+            >
               Home
             </Link>
           </li>
@@ -41,7 +49,11 @@ const Navbar = () => {
           <li>
             <Link
               href="/all-tiles"
-              className="hover:text-black transition duration-200"
+              className={`transition duration-200 ${
+                pathname === "/all-tiles"
+                  ? "text-blue-600 font-bold"
+                  : "text-gray-700 hover:text-black"
+              }`}
             >
               All Tiles
             </Link>
@@ -50,7 +62,11 @@ const Navbar = () => {
           <li>
             <Link
               href="/profile"
-              className="hover:text-black transition duration-200"
+              className={`transition duration-200 ${
+                pathname === "/profile"
+                  ? "text-blue-600 font-bold"
+                  : "text-gray-700 hover:text-black"
+              }`}
             >
               My Profile
             </Link>

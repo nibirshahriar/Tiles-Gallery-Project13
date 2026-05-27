@@ -59,17 +59,10 @@ const Navbar = () => {
 
         <div className="hidden sm:flex items-center gap-3">
           <Link
-            href="/signin"
-            className="px-5 py-2 text-sm font-medium rounded-full border border-gray-300 hover:bg-gray-100 transition-all duration-200"
-          >
-            Sign In
-          </Link>
-
-          <Link
-            href="/signup"
+            href="/login"
             className="px-5 py-2 text-sm font-semibold rounded-full bg-black text-white hover:bg-gray-800 transition-all duration-200 shadow-lg"
           >
-            Sign Up
+            Login
           </Link>
         </div>
 
@@ -109,19 +102,11 @@ const Navbar = () => {
 
           <div className="flex flex-col gap-3 pt-2">
             <Link
-              href="/signin"
-              onClick={() => setOpen(false)}
-              className="w-full text-center px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition"
-            >
-              Sign In
-            </Link>
-
-            <Link
-              href="/signup"
+              href="/login"
               onClick={() => setOpen(false)}
               className="w-full text-center px-4 py-2 rounded-full bg-black text-white hover:bg-gray-800 transition"
             >
-              Sign Up
+              Login
             </Link>
           </div>
         </div>

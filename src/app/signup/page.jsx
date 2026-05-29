@@ -13,6 +13,7 @@ import {
   TextField,
 } from "@heroui/react";
 import { useRouter } from "next/navigation";
+import { GrGoogle } from "react-icons/gr";
 import { toast } from "react-toastify";
 
 export default function SignUpPage() {
@@ -36,6 +37,11 @@ export default function SignUpPage() {
       toast.success("Welcome to Tiles Gallery!");
       router.push("/");
     }
+  };
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
   };
 
   return (
@@ -109,6 +115,15 @@ export default function SignUpPage() {
           </Button>
         </div>
       </Form>
+      <p className="text-center mt-4 text-gray-500">Or</p>
+      <Button
+        variant="outline"
+        className="w-full mt-4"
+        onClick={handleGoogleSignIn}
+      >
+        <GrGoogle />
+        Sign in with Google
+      </Button>
       <p className="text-center mt-4 text-sm text-gray-600">
         Already have an account?{" "}
         <a

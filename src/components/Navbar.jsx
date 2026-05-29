@@ -75,7 +75,7 @@ const Navbar = () => {
 
         <div className="hidden sm:flex items-center gap-3">
           <Link
-            href="/login"
+            href="/signup"
             className="px-5 py-2 text-sm font-semibold rounded-full bg-black text-white hover:bg-gray-800 transition-all duration-200 shadow-lg"
           >
             Login
@@ -118,7 +118,7 @@ const Navbar = () => {
 
           <div className="flex flex-col gap-3 pt-2">
             <Link
-              href="/login"
+              href="/signup"
               onClick={() => setOpen(false)}
               className="w-full text-center px-4 py-2 rounded-full bg-black text-white hover:bg-gray-800 transition"
             >

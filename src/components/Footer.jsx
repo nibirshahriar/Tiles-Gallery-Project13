@@ -1,5 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -39,89 +45,77 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Product */}
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-5">Product</h3>
-
-            <ul className="space-y-3 text-sm text-gray-300">
-              <li>
-                <Link
-                  href="/all-tiles"
-                  className="hover:text-white transition duration-200"
-                >
-                  All Products
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/all-tiles"
-                  className="hover:text-white transition duration-200"
-                >
-                  Latest Collection
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/all-tiles"
-                  className="hover:text-white transition duration-200"
-                >
-                  Room Visualizer
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/"
-                  className="hover:text-white transition duration-200"
-                >
-                  Blog
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Company */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-5">Company</h3>
 
             <ul className="space-y-3 text-sm text-gray-300">
               <li>
-                <Link
-                  href="/about"
-                  className="hover:text-white transition duration-200"
-                >
+                <Link href="/about" className="hover:text-white transition">
                   About
                 </Link>
               </li>
 
               <li>
                 <Link
-                  href="/contact"
-                  className="hover:text-white transition duration-200"
+                  href="/contact-us"
+                  className="hover:text-white transition"
                 >
-                  Contact
+                  Contact Us
                 </Link>
               </li>
 
               <li>
-                <Link
-                  href="/terms"
-                  className="hover:text-white transition duration-200"
-                >
+                <Link href="/terms" className="hover:text-white transition">
                   Terms
                 </Link>
               </li>
 
               <li>
-                <Link
-                  href="/privacy"
-                  className="hover:text-white transition duration-200"
-                >
+                <Link href="/privacy" className="hover:text-white transition">
                   Privacy
                 </Link>
               </li>
             </ul>
+          </div>
+
+          {/* Social Media */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-5">Follow Us</h3>
+
+            <p className="text-sm text-gray-300 mb-5">
+              Connect with us on social platforms.
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 text-white flex items-center justify-center transition-all duration-300 hover:scale-110"
+              >
+                <FaFacebook />
+              </a>
+
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-pink-500 text-white flex items-center justify-center transition-all duration-300 hover:scale-110"
+              >
+                <FaInstagram />
+              </a>
+
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-sky-500 text-white flex items-center justify-center transition-all duration-300 hover:scale-110"
+              >
+                <FaTwitter />
+              </a>
+
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-700 text-white flex items-center justify-center transition-all duration-300 hover:scale-110"
+              >
+                <FaLinkedinIn />
+              </a>
+            </div>
           </div>
 
           {/* CTA */}
@@ -137,16 +131,15 @@ const Footer = () => {
 
             <Link
               href="/signup"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-full 
-              bg-white text-[#2A3C50] text-sm font-semibold
-              hover:bg-gray-200 transition-all duration-300 
-              hover:scale-105 shadow-lg"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full
+      bg-white text-[#2A3C50] text-sm font-semibold
+      hover:bg-gray-200 transition-all duration-300
+      hover:scale-105 shadow-lg"
             >
               Get Started
             </Link>
           </div>
         </div>
-
         {/* Bottom Divider */}
         <div className="mt-12 h-px w-full bg-linear-to-r from-transparent via-white/20 to-transparent" />
 

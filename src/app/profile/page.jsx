@@ -1,9 +1,10 @@
 "use client";
 
-import { UpdateProfile } from "@/components/UpdateProfile";
 import { authClient } from "@/lib/auth-client";
-import { Avatar, Card } from "@heroui/react";
+import { Avatar, Button, Card } from "@heroui/react";
+import Link from "next/link";
 import React from "react";
+import { BiEdit } from "react-icons/bi";
 
 const ProfilePage = () => {
   const userData = authClient.useSession();
@@ -23,9 +24,13 @@ const ProfilePage = () => {
         </Avatar>
         <h2 className="text-xl font-bold">{user?.name}</h2>
         <p className="text-muted-foreground">{user?.email}</p>
-        <UpdateProfile />
+        <Link href="/profile/update">
+          <Button variant="secondary">
+            <BiEdit />
+            Update Profile
+          </Button>
+        </Link>
       </Card>
-      ;
     </div>
   );
 };

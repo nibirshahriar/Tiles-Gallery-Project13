@@ -85,28 +85,27 @@ const Navbar = () => {
         </ul>
 
         <div className="hidden sm:flex items-center gap-3">
-          {userData.isPending ? (
-            <div className="w-24 h-8"></div>
-          ) : !user ? (
+          {!user && (
             <Link
               href="/signin"
-              className="px-5 py-2 text-sm font-semibold rounded-full bg-black text-white"
+              className="px-5 py-2 text-sm font-semibold rounded-full bg-black text-white hover:bg-gray-800 transition-all duration-200 shadow-lg"
             >
               Login
             </Link>
-          ) : (
+          )}
+
+          {user && (
             <div className="flex items-center gap-3">
               <Avatar size="sm">
                 <Avatar.Image
                   alt="User"
-                  src={user.image}
+                  src={user?.image}
                   referrerPolicy="no-referrer"
                 />
                 <Avatar.Fallback>
-                  {user.name.charAt(0).toUpperCase()}
+                  {user?.name?.charAt(0).toUpperCase()}
                 </Avatar.Fallback>
               </Avatar>
-
               <Button size="sm" onClick={hadleLogout}>
                 Log Out
               </Button>

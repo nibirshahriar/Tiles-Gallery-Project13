@@ -16,16 +16,16 @@ const Footer = () => {
       {/* Gradient Glow */}
       <div
         className="absolute inset-0 -z-10 bg-linear-to-tr 
-        from-purple-500/10 via-transparent to-blue-500/10 blur-3xl"
+    from-purple-500/10 via-transparent to-blue-500/10 blur-3xl"
       />
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
+          <div className="space-y-4 text-center sm:text-left">
+            <div className="flex items-center justify-center sm:justify-start gap-3">
               <Image
                 src="/logo.png"
                 alt="Tiles Gallery logo"
@@ -34,19 +34,19 @@ const Footer = () => {
                 className="rounded-full object-cover"
               />
 
-              <h2 className="text-2xl font-bold tracking-tight text-white">
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
                 Tiles Gallery
               </h2>
             </div>
 
-            <p className="text-sm leading-relaxed text-gray-300 max-w-xs">
+            <p className="text-sm leading-relaxed text-gray-300 max-w-xs mx-auto sm:mx-0">
               Discover stunning tile designs for every space. Built for speed,
               style, and creativity.
             </p>
           </div>
 
           {/* Company */}
-          <div>
+          <div className="text-center sm:text-left">
             <h3 className="text-lg font-semibold text-white mb-5">Company</h3>
 
             <ul className="space-y-3 text-sm text-gray-300">
@@ -80,14 +80,14 @@ const Footer = () => {
           </div>
 
           {/* Social Media */}
-          <div>
+          <div className="text-center sm:text-left">
             <h3 className="text-lg font-semibold text-white mb-5">Follow Us</h3>
 
             <p className="text-sm text-gray-300 mb-5">
               Connect with us on social platforms.
             </p>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-3">
               <a
                 href="#"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 text-white flex items-center justify-center transition-all duration-300 hover:scale-110"
@@ -119,7 +119,7 @@ const Footer = () => {
           </div>
 
           {/* CTA */}
-          <div className="space-y-5">
+          <div className="space-y-5 text-center sm:text-left">
             <h3 className="text-lg font-semibold text-white">
               Ready to get started?
             </h3>
@@ -132,24 +132,25 @@ const Footer = () => {
             <Link
               href="/signup"
               className="inline-flex items-center justify-center px-6 py-3 rounded-full
-      bg-white text-[#2A3C50] text-sm font-semibold
-      hover:bg-gray-200 transition-all duration-300
-      hover:scale-105 shadow-lg"
+          bg-white text-[#2A3C50] text-sm font-semibold
+          hover:bg-gray-200 transition-all duration-300
+          hover:scale-105 shadow-lg"
             >
               Get Started
             </Link>
           </div>
         </div>
+
         {/* Bottom Divider */}
         <div className="mt-12 h-px w-full bg-linear-to-r from-transparent via-white/20 to-transparent" />
 
         {/* Bottom */}
-        <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-300">
+        <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-sm text-gray-300">
           <p>
             © {new Date().getFullYear()} Tiles Gallery. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             <Link
               href="/privacy"
               className="hover:text-white transition duration-200"

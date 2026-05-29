@@ -5,10 +5,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
+import { Avatar, Button } from "@heroui/react";
 
 const Navbar = () => {
+  const userData = authClient.useSession();
+  const user = userData.data?.user;
+  // console.log("user", user);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+
+  const hadleLogout = async () => {
+    await authClient.signOut();
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-[#f8fafc]/90 backdrop-blur-xl">
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
@@ -74,12 +84,32 @@ const Navbar = () => {
         </ul>
 
         <div className="hidden sm:flex items-center gap-3">
-          <Link
-            href="/signup"
-            className="px-5 py-2 text-sm font-semibold rounded-full bg-black text-white hover:bg-gray-800 transition-all duration-200 shadow-lg"
-          >
-            Login
-          </Link>
+          {!user && (
+            <Link
+              href="/signup"
+              className="px-5 py-2 text-sm font-semibold rounded-full bg-black text-white hover:bg-gray-800 transition-all duration-200 shadow-lg"
+            >
+              Login
+            </Link>
+          )}
+
+          {user && (
+            <div className="flex items-center gap-3">
+              <Avatar size="sm">
+                <Avatar.Image
+                  alt="User"
+                  src={user?.image}
+                  referrerPolicy="no-referrer"
+                />
+                <Avatar.Fallback>
+                  {user?.name?.charAt(0).toUpperCase()}
+                </Avatar.Fallback>
+              </Avatar>
+              <Button size="sm" onClick={hadleLogout}>
+                Log Out
+              </Button>
+            </div>
+          )}
         </div>
 
         <button
@@ -117,13 +147,33 @@ const Navbar = () => {
           </ul>
 
           <div className="flex flex-col gap-3 pt-2">
-            <Link
-              href="/signup"
-              onClick={() => setOpen(false)}
-              className="w-full text-center px-4 py-2 rounded-full bg-black text-white hover:bg-gray-800 transition"
-            >
-              Login
-            </Link>
+            {!user && (
+              <Link
+                href="/signup"
+                onClick={() => setOpen(false)}
+                className="w-full text-center px-4 py-2 rounded-full bg-black text-white hover:bg-gray-800 transition"
+              >
+                Login
+              </Link>
+            )}
+
+            {user && (
+              <div className="flex items-center gap-3">
+                <Avatar size="sm">
+                  <Avatar.Image
+                    alt="User"
+                    src={user?.image}
+                    referrerPolicy="no-referrer"
+                  />
+                  <Avatar.Fallback>
+                    {user?.name?.charAt(0).toUpperCase()}
+                  </Avatar.Fallback>
+                </Avatar>
+                <Button size="sm" onClick={() => {}}>
+                  Log Out
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>

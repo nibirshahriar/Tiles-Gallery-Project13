@@ -3,11 +3,15 @@
 import { authClient } from "@/lib/auth-client";
 import { Avatar, Button, Card } from "@heroui/react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
 import { BiEdit } from "react-icons/bi";
 
 const ProfilePage = () => {
   const userData = authClient.useSession();
+  if (!userData.isPending && !userData.data?.user) {
+    redirect("/signin");
+  }
   const user = userData.data?.user;
   return (
     <div>

@@ -17,6 +17,7 @@ const Navbar = () => {
 
   const hadleLogout = async () => {
     await authClient.signOut();
+    window.location.href = "/";
   };
 
   return (
@@ -84,27 +85,28 @@ const Navbar = () => {
         </ul>
 
         <div className="hidden sm:flex items-center gap-3">
-          {!user && (
+          {userData.isPending ? (
+            <div className="w-24 h-8"></div>
+          ) : !user ? (
             <Link
-              href="/signup"
-              className="px-5 py-2 text-sm font-semibold rounded-full bg-black text-white hover:bg-gray-800 transition-all duration-200 shadow-lg"
+              href="/signin"
+              className="px-5 py-2 text-sm font-semibold rounded-full bg-black text-white"
             >
               Login
             </Link>
-          )}
-
-          {user && (
+          ) : (
             <div className="flex items-center gap-3">
               <Avatar size="sm">
                 <Avatar.Image
                   alt="User"
-                  src={user?.image}
+                  src={user.image}
                   referrerPolicy="no-referrer"
                 />
                 <Avatar.Fallback>
-                  {user?.name?.charAt(0).toUpperCase()}
+                  {user.name.charAt(0).toUpperCase()}
                 </Avatar.Fallback>
               </Avatar>
+
               <Button size="sm" onClick={hadleLogout}>
                 Log Out
               </Button>
@@ -149,7 +151,7 @@ const Navbar = () => {
           <div className="flex flex-col gap-3 pt-2">
             {!user && (
               <Link
-                href="/signup"
+                href="/signin"
                 onClick={() => setOpen(false)}
                 className="w-full text-center px-4 py-2 rounded-full bg-black text-white hover:bg-gray-800 transition"
               >

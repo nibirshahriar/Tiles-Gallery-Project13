@@ -23,7 +23,6 @@ const PhotoDetailsPage = async ({ params }) => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-     
         <div className="relative w-full aspect-square overflow-hidden rounded-3xl border border-gray-200 shadow-lg bg-white">
           <Image
             src={photo.image}
@@ -33,7 +32,6 @@ const PhotoDetailsPage = async ({ params }) => {
           />
         </div>
 
-        
         <div className="space-y-6">
           <div>
             <p className="text-sm uppercase tracking-widest text-gray-500">
@@ -48,7 +46,7 @@ const PhotoDetailsPage = async ({ params }) => {
           <p className="text-gray-600 leading-relaxed text-lg">
             {photo.description}
           </p>
- 
+
           <div className="flex items-center gap-3">
             <span className="text-3xl font-bold text-black">
               ${photo.price}
@@ -56,7 +54,7 @@ const PhotoDetailsPage = async ({ params }) => {
 
             <span className="text-gray-500">{photo.currency}</span>
           </div>
- 
+
           <div className="space-y-3 border-t border-b border-gray-200 py-6">
             <div className="flex justify-between">
               <span className="font-medium text-gray-500">Material</span>
@@ -87,7 +85,6 @@ const PhotoDetailsPage = async ({ params }) => {
             </div>
           </div>
 
-          
           <div className="flex flex-wrap gap-3">
             <span className="px-4 py-2 rounded-full bg-gray-100 text-sm font-medium">
               {photo.category}

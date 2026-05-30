@@ -7,6 +7,7 @@ import { redirect } from "next/navigation";
 import React from "react";
 import { BiEdit } from "react-icons/bi";
 
+
 const ProfilePage = () => {
   const userData = authClient.useSession();
   if (!userData.isPending && !userData.data?.user) {

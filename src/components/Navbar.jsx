@@ -15,7 +15,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  const hadleLogout = async () => {
+  const handleLogout = async () => {
     await authClient.signOut();
     window.location.href = "/";
   };
@@ -106,7 +106,7 @@ const Navbar = () => {
                   {user?.name?.charAt(0).toUpperCase()}
                 </Avatar.Fallback>
               </Avatar>
-              <Button size="sm" onClick={hadleLogout}>
+              <Button size="sm" onClick={handleLogout}>
                 Log Out
               </Button>
             </div>
@@ -170,7 +170,7 @@ const Navbar = () => {
                     {user?.name?.charAt(0).toUpperCase()}
                   </Avatar.Fallback>
                 </Avatar>
-                <Button size="sm" onClick={() => {}}>
+                <Button size="sm" onClick={handleLogout}>
                   Log Out
                 </Button>
               </div>

@@ -14,10 +14,13 @@ import {
 } from "@heroui/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { GrGoogle } from "react-icons/gr";
 import { toast } from "react-toastify";
 
 export default function SignInPage() {
+  const [isShowPassword, setIsShowPassword] = useState(false);
   const router = useRouter();
 
   const onSubmit = async (e) => {
@@ -71,7 +74,7 @@ export default function SignInPage() {
             isRequired
             minLength={8}
             name="password"
-            type="password"
+            type={isShowPassword ? "text" : "password"}
             validate={(value) => {
               if (value.length < 8) {
                 return "Password must be at least 8 characters";
@@ -86,7 +89,17 @@ export default function SignInPage() {
             }}
           >
             <Label>Password</Label>
-            <Input placeholder="Enter your password" />
+
+            <div className="relative">
+              <Input className="w-full" placeholder="Enter your password" />
+              <span
+                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer z-10"
+                onClick={() => setIsShowPassword(!isShowPassword)}
+              >
+                {isShowPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
+
             <Description>
               Must be at least 8 characters with 1 uppercase and 1 number
             </Description>
